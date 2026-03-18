@@ -1,0 +1,1040 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FAQ - AutoFAQ | AI-Powered FAQ Generator for Shopify</title>
+  <meta name="description" content="Frequently asked questions about AutoFAQ — the AI-powered FAQ generator for Shopify product pages. Learn about features, pricing, setup, and more.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --purple: #6d2f9e;
+      --blue: #2c6ecb;
+      --green: #008060;
+      --dark: #1a1a2e;
+      --light: #f8f9fa;
+      --gray: #6b7280;
+      --gradient: linear-gradient(135deg, #6d2f9e 0%, #2c6ecb 50%, #1a8cff 100%);
+      --gradient-green: linear-gradient(135deg, #008060, #00b386);
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #1a1a2e;
+      background: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* Nav */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(26, 26, 46, 0.9);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.3rem;
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--gradient);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.02em;
+      position: relative;
+    }
+
+    .logo-icon::after {
+      content: 'AI';
+      position: absolute;
+      bottom: -3px;
+      right: -5px;
+      background: var(--gradient-green);
+      font-size: 0.45rem;
+      padding: 1px 4px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #fff; }
+    .nav-links a.active { color: #fff; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+    }
+
+    .btn-primary {
+      background: var(--gradient-green);
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(0, 128, 96, 0.3);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(0, 128, 96, 0.4);
+    }
+
+    /* Page Hero */
+    .page-hero {
+      padding: 10rem 2rem 5rem;
+      background: var(--dark);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background:
+        radial-gradient(ellipse at 30% 50%, rgba(109, 47, 158, 0.3) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 50%, rgba(44, 110, 203, 0.25) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 80%, rgba(0, 128, 96, 0.15) 0%, transparent 40%);
+      animation: bgShift 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes bgShift {
+      0% { transform: translate(0, 0) scale(1); }
+      100% { transform: translate(-3%, 3%) scale(1.05); }
+    }
+
+    .page-hero-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      background: rgba(0, 128, 96, 0.15);
+      border: 1px solid rgba(0, 128, 96, 0.3);
+      color: #00e6a0;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(2.2rem, 5vw, 3.5rem);
+      font-weight: 800;
+      color: #fff;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      letter-spacing: -0.03em;
+    }
+
+    .page-hero p {
+      font-size: 1.15rem;
+      color: rgba(255,255,255,0.65);
+      max-width: 550px;
+      margin: 0 auto;
+      line-height: 1.7;
+    }
+
+    /* FAQ Section */
+    .faq-section {
+      padding: 5rem 2rem;
+      background: #fff;
+    }
+
+    .container {
+      max-width: 860px;
+      margin: 0 auto;
+    }
+
+    .faq-categories {
+      display: flex;
+      gap: 0.75rem;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .faq-category-btn {
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+      border: 2px solid #e5e7eb;
+      background: transparent;
+      color: var(--gray);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      font-family: inherit;
+    }
+
+    .faq-category-btn:hover {
+      border-color: var(--green);
+      color: var(--green);
+    }
+
+    .faq-category-btn.active {
+      background: var(--gradient-green);
+      border-color: transparent;
+      color: #fff;
+    }
+
+    .faq-group {
+      margin-bottom: 3rem;
+    }
+
+    .faq-group-title {
+      font-size: 1.3rem;
+      font-weight: 800;
+      color: var(--dark);
+      margin-bottom: 1.25rem;
+      padding-bottom: 0.75rem;
+      border-bottom: 2px solid #f0f0f5;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .faq-group-title span {
+      font-size: 1.1rem;
+    }
+
+    .faq-item {
+      border: 1px solid #e5e7eb;
+      border-radius: 14px;
+      margin-bottom: 0.75rem;
+      overflow: hidden;
+      transition: box-shadow 0.2s ease;
+    }
+
+    .faq-item:hover {
+      box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+    }
+
+    .faq-item.open {
+      border-color: rgba(0, 128, 96, 0.35);
+      box-shadow: 0 4px 20px rgba(0, 128, 96, 0.08);
+    }
+
+    .faq-question {
+      width: 100%;
+      text-align: left;
+      background: none;
+      border: none;
+      padding: 1.25rem 1.5rem;
+      font-family: inherit;
+      font-size: 0.97rem;
+      font-weight: 600;
+      color: var(--dark);
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      transition: color 0.2s;
+    }
+
+    .faq-question:hover {
+      color: var(--green);
+    }
+
+    .faq-item.open .faq-question {
+      color: var(--green);
+    }
+
+    .faq-icon {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+      background: #f0f0f5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--gray);
+      flex-shrink: 0;
+      transition: all 0.3s ease;
+    }
+
+    .faq-item.open .faq-icon {
+      background: var(--gradient-green);
+      color: #fff;
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.4s ease, padding 0.3s ease;
+    }
+
+    .faq-answer-inner {
+      padding: 0 1.5rem 1.5rem;
+      font-size: 0.93rem;
+      color: var(--gray);
+      line-height: 1.75;
+    }
+
+    .faq-answer-inner a {
+      color: var(--green);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .faq-answer-inner a:hover {
+      text-decoration: underline;
+    }
+
+    .faq-answer-inner strong {
+      color: var(--dark);
+      font-weight: 600;
+    }
+
+    .faq-answer-inner ul {
+      margin: 0.75rem 0 0.75rem 1.25rem;
+    }
+
+    .faq-answer-inner ul li {
+      margin-bottom: 0.3rem;
+    }
+
+    .faq-item.open .faq-answer {
+      max-height: 600px;
+    }
+
+    /* CTA Banner */
+    .cta-banner {
+      margin-top: 4rem;
+      padding: 3rem 2.5rem;
+      border-radius: 20px;
+      background: var(--dark);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .cta-banner::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 50%, rgba(0, 128, 96, 0.2) 0%, transparent 65%);
+    }
+
+    .cta-banner-content {
+      position: relative;
+      z-index: 2;
+    }
+
+    .cta-banner h2 {
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+    }
+
+    .cta-banner p {
+      color: rgba(255,255,255,0.6);
+      font-size: 1rem;
+      margin-bottom: 1.75rem;
+      max-width: 450px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    /* Footer */
+    footer {
+      background: #0d0d1a;
+      color: rgba(255,255,255,0.4);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: #fff; }
+
+    footer p { font-size: 0.85rem; }
+
+    /* Animate on scroll */
+    .fade-up {
+      opacity: 0;
+      transform: translateY(24px);
+      transition: opacity 0.55s ease, transform 0.55s ease;
+    }
+
+    .fade-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Mobile */
+    @media (max-width: 650px) {
+      nav { padding: 0.75rem 1rem; }
+      .nav-links a:not(.btn) { display: none; }
+      .faq-section { padding: 3rem 1.25rem; }
+      .page-hero { padding: 8rem 1.25rem 3.5rem; }
+      .cta-banner { padding: 2rem 1.5rem; }
+    }
+
+    html { scroll-behavior: smooth; }
+  </style>
+</head>
+<body>
+
+  <!-- Nav -->
+  <nav>
+    <a href="index.html" class="logo">
+      <div class="logo-icon">FAQ</div>
+      AutoFAQ
+    </a>
+    <div class="nav-links">
+      <a href="index.html#features">Features</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="faq.html" class="active">FAQ</a>
+      <a href="privacy.html">Privacy</a>
+      <!-- TODO: Replace with your Shopify App Store URL -->
+      <a href="index.html#install" class="btn btn-primary">Install Free</a>
+    </div>
+  </nav>
+
+  <!-- Page Hero -->
+  <section class="page-hero">
+    <div class="page-hero-content">
+      <div class="badge">Help Center</div>
+      <h1>Frequently Asked Questions</h1>
+      <p>Everything you need to know about AutoFAQ. Can't find your answer? <a href="mailto:your-email@example.com" style="color:#00e6a0; text-decoration:none; font-weight:600;">Contact us.</a></p>
+    </div>
+  </section>
+
+  <!-- FAQ Content -->
+  <section class="faq-section">
+    <div class="container">
+
+      <!-- Category filters -->
+      <div class="faq-categories fade-up">
+        <button class="faq-category-btn active" data-category="all">All</button>
+        <button class="faq-category-btn" data-category="general">General</button>
+        <button class="faq-category-btn" data-category="getting-started">Getting Started</button>
+        <button class="faq-category-btn" data-category="features">Features</button>
+        <button class="faq-category-btn" data-category="pricing">Pricing</button>
+        <button class="faq-category-btn" data-category="technical">Technical</button>
+        <button class="faq-category-btn" data-category="support">Support</button>
+      </div>
+
+      <!-- General -->
+      <div class="faq-group fade-up" data-category="general">
+        <h2 class="faq-group-title"><span>&#128218;</span> General</h2>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            What is AutoFAQ?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              AutoFAQ is an AI-powered Shopify app that automatically generates FAQ sections for your product pages. It reads your product data — title, description, variants, tags, and more — and uses AI to create relevant, natural-sounding question-and-answer pairs that help customers make informed purchase decisions.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Who is AutoFAQ for?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              AutoFAQ is built for Shopify merchants of all sizes — from solo founders launching their first store to large brands managing thousands of products. If you want to improve product page conversions, reduce customer support tickets, and save hours of manual writing, AutoFAQ is for you.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Is AutoFAQ only for Shopify?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Yes, AutoFAQ is currently built exclusively for Shopify and is available through the Shopify App Store. It integrates natively with your store's product data and storefront using Shopify's APIs and metafields.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            What AI model powers AutoFAQ?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              AutoFAQ uses state-of-the-art large language models from leading AI providers including OpenAI and Anthropic. These models are designed to understand product context and generate accurate, helpful, and human-sounding FAQ content.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Getting Started -->
+      <div class="faq-group fade-up" data-category="getting-started">
+        <h2 class="faq-group-title"><span>&#128640;</span> Getting Started</h2>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            How do I install AutoFAQ?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Install AutoFAQ directly from the <a href="https://apps.shopify.com/your-app-slug">Shopify App Store</a>. Click "Add app," follow the authorization prompts, and you'll be ready to generate your first FAQ in minutes. No credit card required to start with the Free plan.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            How long does setup take?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Setup takes less than 5 minutes. After installing, simply open AutoFAQ from your Shopify admin, select a product, and click Generate. Your first FAQ section can be live on your storefront within minutes.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Do I need coding skills to use AutoFAQ?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              No coding required. AutoFAQ is designed for merchants, not developers. The entire experience — generating, editing, customizing, and publishing FAQs — is done through a simple point-and-click interface inside your Shopify admin.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Is AutoFAQ compatible with my Shopify theme?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              AutoFAQ works with all Shopify themes, including Online Store 2.0 themes. FAQs are stored as Shopify metafields and rendered using native Liquid blocks, ensuring seamless integration with any theme without custom code.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            What Shopify permissions does AutoFAQ require?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              AutoFAQ requests only the permissions it needs to function:
+              <ul>
+                <li><strong>read_products</strong> — to read your product data for FAQ generation</li>
+                <li><strong>write_products</strong> — to save generated FAQs back to your products</li>
+                <li><strong>read_metaobjects / write_metaobjects</strong> — to store FAQ content as Shopify metafields</li>
+              </ul>
+              No payment or customer data is ever accessed.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Features -->
+      <div class="faq-group fade-up" data-category="features">
+        <h2 class="faq-group-title"><span>&#9889;</span> Features</h2>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            How many FAQ questions can be generated per product?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              AutoFAQ generates a full set of relevant FAQ pairs per product — typically 5–10 questions per generation. You can run multiple generations and cherry-pick the best questions, or add your own manually.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Can I edit the generated FAQs before publishing?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Yes, absolutely. After generation, you have full edit control. You can modify any question or answer, reorder items, delete questions you don't need, or add your own custom Q&A pairs — all before publishing to your storefront.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Can I customize how the FAQ section looks on my store?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Yes. AutoFAQ includes a full design customizer that lets you control colors, fonts, spacing, icons, and animations to match your store's brand. No code is required — all changes are made through the visual interface.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            What is the Auto-Generate feature?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Auto-Generate automatically creates FAQ sections whenever a new product is added to your store. This means your FAQ coverage stays up to date without any manual effort — perfect for stores with frequent product launches. This feature is available on the <strong>Starter plan and above</strong>.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            What does the Bulk Generate feature do?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Bulk Generate lets you generate FAQs for multiple products at once — ideal if you're just getting started or have a large catalog. Instead of processing each product individually, you can select a batch and run generation in one go. Available on the <strong>Growth plan and above</strong>.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            What analytics does AutoFAQ provide?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              AutoFAQ tracks FAQ views, individual question click rates, and overall engagement metrics. This helps you understand which questions your customers care about most, so you can refine your FAQ content over time. Analytics are available on the <strong>Growth plan and above</strong>.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Are the FAQ sections SEO-friendly?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Yes. AutoFAQ renders FAQ content as native Liquid blocks directly in your product page HTML, making it fully indexable by search engines. This can improve your product page rankings by targeting long-tail question-based search queries that customers use before purchasing.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Can I use custom FAQ templates?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Custom FAQ templates are available on the <strong>Pro plan</strong>. Templates let you pre-define a structure and style for FAQ generation, ensuring consistency across all products and matching your specific brand voice and requirements.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Pricing -->
+      <div class="faq-group fade-up" data-category="pricing">
+        <h2 class="faq-group-title"><span>&#128176;</span> Pricing</h2>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Is there a free plan?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Yes! AutoFAQ offers a <strong>Free plan</strong> that includes up to 3 products and 10 FAQ generations per month. It's a great way to try the app and see the quality of AI-generated FAQs on your store before upgrading.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            What are the differences between plans?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Here's a quick overview of the four plans:
+              <ul>
+                <li><strong>Free ($0/mo)</strong> — 3 products, 10 generations/month, basic customization, community support</li>
+                <li><strong>Starter ($9/mo)</strong> — 50 products, 100 generations/month, remove branding, auto-generate for new products, email support</li>
+                <li><strong>Growth ($29/mo)</strong> — Unlimited products, 500 generations/month, bulk generate, analytics & insights, priority support</li>
+                <li><strong>Pro ($79/mo)</strong> — Unlimited everything, custom FAQ templates, white-label (no branding), dedicated support</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Can I upgrade or downgrade my plan at any time?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Yes. You can upgrade or downgrade your plan at any time from within the AutoFAQ settings. Changes take effect immediately, and billing is handled directly through Shopify's subscription system.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            What happens if I exceed my monthly generation limit?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              If you reach your monthly generation limit, you won't be able to generate new FAQs until the next billing cycle resets your count — or until you upgrade to a higher plan. You can still view, edit, and publish any FAQs you've already generated.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Is there a free trial for paid plans?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              The Free plan lets you experience AutoFAQ before committing to a paid tier. If you have questions about a specific paid plan, reach out to us at <a href="mailto:your-email@example.com">your-email@example.com</a> and we'll be happy to help.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            How is billing handled?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Billing is managed entirely through Shopify. Charges appear on your regular Shopify invoice, so there's no need to enter separate payment information. Shopify handles all subscription management, upgrades, and cancellations.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            What does "white-label" mean on the Pro plan?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              White-label means the AutoFAQ branding is completely removed from your storefront FAQ sections. No "Powered by AutoFAQ" badges or references appear anywhere on your store, giving a fully branded, native experience for your customers. Branding removal is also available on the Starter plan and above.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Technical -->
+      <div class="faq-group fade-up" data-category="technical">
+        <h2 class="faq-group-title"><span>&#128295;</span> Technical</h2>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            What product data does AutoFAQ use to generate FAQs?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              AutoFAQ reads the following product data from your Shopify store to generate contextually relevant FAQs:
+              <ul>
+                <li>Product title and description</li>
+                <li>Variants (sizes, colors, materials, etc.)</li>
+                <li>Product tags</li>
+                <li>Product type and vendor</li>
+              </ul>
+              The more detailed your product descriptions, the more accurate and useful your generated FAQs will be.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Where are FAQs stored?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              FAQs are stored directly in your Shopify store as <strong>product metafields</strong> (and metaobjects). This means the data lives in your Shopify account — not on a third-party server — ensuring reliability, portability, and compliance with Shopify's data standards.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Will AutoFAQ slow down my store?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              No. FAQ generation happens inside the AutoFAQ admin panel, not on your storefront. On the storefront, FAQs are rendered as static Liquid HTML — there are no external API calls at load time, so there is zero performance impact on your page speed.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Does AutoFAQ work with Shopify 2.0 themes?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Yes. AutoFAQ is fully compatible with Online Store 2.0 themes. It uses Shopify's native section and block architecture, so you can add your FAQ section anywhere on a product page using the theme editor — no code changes needed.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            What data does AutoFAQ store about my store?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              AutoFAQ collects minimal data necessary to operate the app: your Shopify store URL, access tokens for API calls, the product data used for generation, and usage statistics (e.g., number of generations). No customer data, payment information, or personally identifiable information is stored. See our <a href="privacy.html">Privacy Policy</a> for full details.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Does AutoFAQ send my product data to third parties?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Product data is sent to AI providers (OpenAI / Anthropic) solely for the purpose of generating your FAQs. This is necessary for the AI generation to work. We do not sell your data or share it with any other third parties. You can review our full data practices in the <a href="privacy.html">Privacy Policy</a>.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Support -->
+      <div class="faq-group fade-up" data-category="support">
+        <h2 class="faq-group-title"><span>&#128587;</span> Support</h2>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            How do I get support?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Support options depend on your plan:
+              <ul>
+                <li><strong>Free</strong> — Community support</li>
+                <li><strong>Starter</strong> — Email support at <a href="mailto:your-email@example.com">your-email@example.com</a></li>
+                <li><strong>Growth</strong> — Priority email support with faster response times</li>
+                <li><strong>Pro</strong> — Dedicated support with direct access to our team</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            How do I uninstall AutoFAQ?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              You can uninstall AutoFAQ at any time from your Shopify admin under <strong>Settings → Apps and sales channels</strong>. Uninstalling removes the app's access to your store. Any FAQs already published to your product pages (stored as metafields) will remain until you manually delete them.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Can I delete my data after uninstalling?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              Yes. You can request full data deletion by contacting us at <a href="mailto:your-email@example.com">your-email@example.com</a> after uninstalling the app. We will remove all store-related data from our systems within 30 days in accordance with our data retention policy.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            What if the generated FAQs aren't accurate for my product?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              AI-generated content is a starting point, not a final product. You have full edit control to adjust any question or answer before publishing. For best results, make sure your product descriptions are detailed and accurate — the more information the AI has, the better the output. You can also regenerate to get a fresh set of questions.
+            </div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question">
+            Still have a question?
+            <div class="faq-icon">+</div>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">
+              We're here to help! Reach out to us at <a href="mailto:your-email@example.com">your-email@example.com</a> and we'll get back to you as soon as possible.
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- CTA Banner -->
+      <div class="cta-banner fade-up">
+        <div class="cta-banner-content">
+          <h2>Ready to Get Started?</h2>
+          <p>Install AutoFAQ for free and generate your first product FAQ in minutes.</p>
+          <!-- TODO: Replace with your Shopify App Store URL -->
+          <a href="https://apps.shopify.com/your-app-slug" class="btn btn-primary" style="padding: 0.9rem 2rem; font-size: 1rem;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 11 12 14 22 4"/><path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11"/></svg>
+            Install on Shopify — It's Free
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <a href="faq.html">FAQ</a>
+      <a href="mailto:your-email@example.com">Contact</a>
+      <!-- TODO: Replace with your Shopify App Store URL -->
+      <a href="https://apps.shopify.com/your-app-slug">Shopify App Store</a>
+    </div>
+    <p>&copy; 2026 AutoFAQ. All rights reserved.</p>
+  </footer>
+
+  <script>
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.08 });
+
+    document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+    // FAQ accordion
+    document.querySelectorAll('.faq-question').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const item = btn.closest('.faq-item');
+        const isOpen = item.classList.contains('open');
+
+        // Close all open items
+        document.querySelectorAll('.faq-item.open').forEach(openItem => {
+          openItem.classList.remove('open');
+        });
+
+        // Toggle clicked item
+        if (!isOpen) {
+          item.classList.add('open');
+        }
+      });
+    });
+
+    // Category filter
+    const categoryBtns = document.querySelectorAll('.faq-category-btn');
+    const faqGroups = document.querySelectorAll('.faq-group');
+
+    categoryBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        categoryBtns.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+
+        const category = btn.dataset.category;
+
+        faqGroups.forEach(group => {
+          if (category === 'all' || group.dataset.category === category) {
+            group.style.display = 'block';
+          } else {
+            group.style.display = 'none';
+          }
+        });
+      });
+    });
+  </script>
+</body>
+</html>
