@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — AutoFAQ</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --purple: #6d2f9e;
+      --blue: #2c6ecb;
+      --green: #008060;
+      --dark: #1a1a2e;
+      --light: #f8f9fa;
+      --gray: #6b7280;
+      --gradient: linear-gradient(135deg, #6d2f9e 0%, #2c6ecb 50%, #1a8cff 100%);
+      --gradient-green: linear-gradient(135deg, #008060, #00b386);
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #1a1a2e;
+      background: #fff;
+      line-height: 1.7;
+    }
+
+    /* Nav */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(26, 26, 46, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.3rem;
+    }
+
+    .logo-icon {
+      width: 36px;
+      height: 36px;
+      background: var(--gradient);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.65rem;
+      font-weight: 800;
+      color: #fff;
+      position: relative;
+    }
+
+    .logo-icon::after {
+      content: 'AI';
+      position: absolute;
+      bottom: -3px;
+      right: -5px;
+      background: var(--gradient-green);
+      font-size: 0.45rem;
+      padding: 1px 4px;
+      border-radius: 4px;
+      font-weight: 700;
+    }
+
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #fff; }
+
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      background: var(--gradient-green);
+      color: #fff;
+      transition: all 0.3s ease;
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(0, 128, 96, 0.4);
+    }
+
+    /* Header */
+    .page-header {
+      padding: 8rem 2rem 3rem;
+      background: var(--dark);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at 50% 80%, rgba(109, 47, 158, 0.2) 0%, transparent 60%);
+    }
+
+    .page-header h1 {
+      position: relative;
+      z-index: 2;
+      color: #fff;
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .page-header p {
+      position: relative;
+      z-index: 2;
+      color: rgba(255,255,255,0.5);
+      font-size: 1rem;
+      margin-top: 0.75rem;
+    }
+
+    /* Content */
+    .content {
+      max-width: 780px;
+      margin: 0 auto;
+      padding: 4rem 2rem 6rem;
+    }
+
+    .content h2 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      margin-top: 2.5rem;
+      margin-bottom: 0.75rem;
+      letter-spacing: -0.02em;
+    }
+
+    .content h2:first-child {
+      margin-top: 0;
+    }
+
+    .content p, .content li {
+      color: #4b5563;
+      font-size: 0.95rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .content ul {
+      padding-left: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .content li {
+      margin-bottom: 0.4rem;
+    }
+
+    .content a {
+      color: var(--blue);
+      text-decoration: none;
+    }
+
+    .content a:hover {
+      text-decoration: underline;
+    }
+
+    .content .highlight-box {
+      background: var(--light);
+      border-left: 4px solid var(--green);
+      padding: 1.25rem 1.5rem;
+      border-radius: 0 10px 10px 0;
+      margin: 1.5rem 0;
+    }
+
+    .content .highlight-box p {
+      margin-bottom: 0;
+      color: #374151;
+    }
+
+    /* Footer */
+    footer {
+      background: #0d0d1a;
+      color: rgba(255,255,255,0.4);
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .footer-links a {
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 0.9rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: #fff; }
+    footer p { font-size: 0.85rem; }
+
+    @media (max-width: 650px) {
+      nav { padding: 0.75rem 1rem; }
+      .nav-links a:not(.btn-primary) { display: none; }
+      .content { padding: 3rem 1.25rem 4rem; }
+      .page-header h1 { font-size: 2rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- Nav -->
+  <nav>
+    <a href="index.html" class="logo">
+      <div class="logo-icon">FAQ</div>
+      AutoFAQ
+    </a>
+    <div class="nav-links">
+      <a href="index.html">Home</a>
+      <a href="index.html#features">Features</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="index.html#install" class="btn-primary">Install Free</a>
+    </div>
+  </nav>
+
+  <!-- Header -->
+  <div class="page-header">
+    <h1>Privacy Policy</h1>
+    <p>Last updated: March 18, 2026</p>
+  </div>
+
+  <!-- Content -->
+  <div class="content">
+    <h2>Introduction</h2>
+    <p>AutoFAQ ("we", "our", or "us") is committed to protecting the privacy of our users. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you install and use the AutoFAQ Shopify application (the "App").</p>
+    <p>By installing or using the App, you agree to the terms of this Privacy Policy. If you do not agree with the terms of this policy, please do not install or use the App.</p>
+
+    <h2>Information We Collect</h2>
+    <p>When you install and use AutoFAQ, we may collect the following types of information:</p>
+
+    <h3 style="font-size: 1.1rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">Store Information</h3>
+    <ul>
+      <li>Your Shopify store name and domain</li>
+      <li>Store owner email address (as provided by Shopify during installation)</li>
+      <li>Shopify access tokens required for the App to function</li>
+    </ul>
+
+    <h3 style="font-size: 1.1rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">Product Data</h3>
+    <ul>
+      <li>Product titles, descriptions, tags, and variants</li>
+      <li>Product metafields</li>
+      <li>This data is used solely to generate relevant FAQ content for your products</li>
+    </ul>
+
+    <h3 style="font-size: 1.1rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.5rem;">Usage Data</h3>
+    <ul>
+      <li>FAQ generation counts and usage statistics</li>
+      <li>Feature usage within the App dashboard</li>
+      <li>FAQ engagement analytics (views, clicks, expansions) on your storefront</li>
+    </ul>
+
+    <div class="highlight-box">
+      <p><strong>We do not collect:</strong> Customer personal data, payment information, order details, or any data unrelated to the FAQ generation functionality of the App.</p>
+    </div>
+
+    <h2>How We Use Your Information</h2>
+    <p>We use the information we collect for the following purposes:</p>
+    <ul>
+      <li><strong>FAQ Generation:</strong> Product data is sent to AI providers (OpenAI and/or Anthropic) to generate FAQ content. This data is processed in real-time and is not stored by the AI providers beyond the immediate request.</li>
+      <li><strong>App Functionality:</strong> To provide, maintain, and improve the App's features and your experience.</li>
+      <li><strong>Usage Tracking:</strong> To enforce plan limits and provide usage statistics in your dashboard.</li>
+      <li><strong>Analytics:</strong> To provide FAQ engagement insights and help you understand how customers interact with your FAQs.</li>
+      <li><strong>Support:</strong> To respond to your support requests and communicate important updates about the App.</li>
+    </ul>
+
+    <h2>Third-Party Services</h2>
+    <p>AutoFAQ integrates with the following third-party services:</p>
+    <ul>
+      <li><strong>Shopify:</strong> The App operates within the Shopify platform and accesses store data through the Shopify API in accordance with Shopify's <a href="https://www.shopify.com/legal/api-terms" target="_blank">API Terms of Service</a>.</li>
+      <li><strong>OpenAI / Anthropic:</strong> Product data is sent to AI providers to generate FAQ content. These providers process data according to their respective privacy policies and data processing agreements. Data is sent only for the purpose of generating FAQ responses and is not used for model training.</li>
+    </ul>
+
+    <h2>Data Storage & Security</h2>
+    <p>We take reasonable measures to protect your information:</p>
+    <ul>
+      <li>All data is transmitted using industry-standard encryption (HTTPS/TLS)</li>
+      <li>Access tokens and sensitive credentials are stored securely and encrypted</li>
+      <li>Generated FAQs are stored as Shopify metafields on your product resources, meaning they remain within your Shopify store</li>
+      <li>Session data and App settings are stored in a secured database with restricted access</li>
+    </ul>
+
+    <h2>Data Retention</h2>
+    <p>We retain your data for as long as you have the App installed on your store. When you uninstall the App:</p>
+    <ul>
+      <li>Your session data and App settings are automatically deleted from our database</li>
+      <li>FAQ content stored in your Shopify product metafields will remain in your store (since it belongs to your Shopify data)</li>
+      <li>Usage records and analytics data are deleted within 30 days of uninstallation</li>
+    </ul>
+
+    <h2>Your Rights</h2>
+    <p>You have the following rights regarding your data:</p>
+    <ul>
+      <li><strong>Access:</strong> You can request a copy of the data we hold about your store.</li>
+      <li><strong>Correction:</strong> You can update your information through the App settings.</li>
+      <li><strong>Deletion:</strong> You can request deletion of your data by uninstalling the App or contacting us directly.</li>
+      <li><strong>Portability:</strong> FAQ data is stored in standard Shopify metafields and is accessible through Shopify's admin and APIs.</li>
+    </ul>
+
+    <h2>Shopify API Scopes</h2>
+    <p>AutoFAQ requests the following Shopify API permissions:</p>
+    <ul>
+      <li><strong>read_products:</strong> To read product data for FAQ generation</li>
+      <li><strong>write_products:</strong> To save generated FAQs as product metafields</li>
+      <li><strong>read_metaobjects / write_metaobjects:</strong> To manage FAQ-related metaobject definitions</li>
+    </ul>
+    <p>We only request the minimum permissions necessary for the App to function. We do not access customer data, orders, or any other store data beyond what is listed above.</p>
+
+    <h2>Children's Privacy</h2>
+    <p>AutoFAQ is a business-to-business application designed for Shopify merchants. We do not knowingly collect information from children under the age of 13. If you believe we have inadvertently collected such information, please contact us so we can promptly delete it.</p>
+
+    <h2>Changes to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time. When we make changes, we will update the "Last updated" date at the top of this page. We encourage you to review this policy periodically. Continued use of the App after any modifications constitutes your acceptance of the updated policy.</p>
+
+    <h2>Contact Us</h2>
+    <p>If you have any questions or concerns about this Privacy Policy or our data practices, please contact us at:</p>
+    <!-- TODO: Replace with your actual contact email -->
+    <p><strong>Email:</strong> <a href="mailto:your-email@example.com">your-email@example.com</a></p>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="privacy.html">Privacy Policy</a>
+      <!-- TODO: Replace with your actual contact email -->
+      <a href="mailto:your-email@example.com">Contact</a>
+    </div>
+    <p>&copy; 2026 AutoFAQ. All rights reserved.</p>
+  </footer>
+</body>
+</html>
