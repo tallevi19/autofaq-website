@@ -270,11 +270,12 @@
       display: flex;
       gap: 0.5rem;
       margin-bottom: 1.25rem;
+      justify-content: center;
     }
 
     .mockup-input {
-      flex: 1;
-      padding: 0.65rem 0.75rem;
+      width: 64px;
+      padding: 0.65rem 0.5rem;
       background: rgba(255,255,255,0.07);
       border: 1px solid rgba(255,255,255,0.12);
       border-radius: 8px;
@@ -284,6 +285,8 @@
       text-align: center;
       font-family: inherit;
     }
+
+    .mockup-input.year { width: 90px; }
 
     .mockup-input.active {
       border-color: var(--teal);
@@ -716,6 +719,7 @@
       .hero-buttons { flex-direction: column; align-items: center; }
       .hero-meta { flex-direction: column; align-items: center; gap: 0.3rem; }
       .hero-meta .sep { display: none; }
+      .hero-visual { padding: 0 0.5rem; }
       .section { padding: 4rem 1.25rem; }
       .footer-inner { flex-direction: column; }
     }
@@ -739,7 +743,7 @@
       <a href="#features">Features</a>
       <a href="#pricing">Pricing</a>
       <a href="#faq">FAQ</a>
-      <a href="../privacy.html">Privacy</a>
+      <a href="privacy.html">Privacy</a>
       <a href="https://apps.shopify.com/" class="btn btn-primary" style="padding: 0.55rem 1.2rem; font-size: 0.88rem;">Install Free</a>
     </div>
   </nav>
@@ -798,7 +802,7 @@
             <span class="mockup-sep">/</span>
             <input class="mockup-input" value="06" readonly>
             <span class="mockup-sep">/</span>
-            <input class="mockup-input active" value="1990" readonly>
+            <input class="mockup-input active year" value="1990" readonly>
           </div>
           <div class="mockup-verified">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
@@ -859,42 +863,24 @@
         </div>
 
         <div class="feature-card fade-up" style="transition-delay: 0.1s;">
-          <div class="feature-icon">🏷️</div>
-          <h3>Order Tagging &amp; Notes</h3>
-          <p>Every verified sale is automatically tagged in Shopify and annotated with a timestamp, creating a clear audit trail.</p>
-        </div>
-
-        <div class="feature-card fade-up" style="transition-delay: 0.15s;">
-          <div class="feature-icon">📊</div>
-          <h3>Analytics Dashboard</h3>
-          <p>Track verification counts, pass rates, and trends across locations and time periods — all from one clean dashboard.</p>
-        </div>
-
-        <div class="feature-card fade-up" style="transition-delay: 0.2s;">
           <div class="feature-icon">🛡️</div>
           <h3>Challenge 25 Mode</h3>
           <p>Enable Challenge 25 to prompt staff to check ID whenever a customer looks under 25 — the industry-standard best practice.</p>
         </div>
 
-        <div class="feature-card fade-up" style="transition-delay: 0.25s;">
+        <div class="feature-card fade-up" style="transition-delay: 0.15s;">
           <div class="feature-icon">🎨</div>
           <h3>Fully Customizable</h3>
           <p>Set minimum age thresholds, customize prompts, and tailor the experience to match your store's compliance policy.</p>
         </div>
 
-        <div class="feature-card fade-up" style="transition-delay: 0.3s;">
-          <div class="feature-icon">📋</div>
-          <h3>CSV Export</h3>
-          <p>Export your full verification log as a CSV at any time. Ready for audits, inspections, or internal reporting.</p>
-        </div>
-
-        <div class="feature-card fade-up" style="transition-delay: 0.35s;">
+        <div class="feature-card fade-up" style="transition-delay: 0.2s;">
           <div class="feature-icon">🔔</div>
           <h3>Staff Reminders</h3>
           <p>On-screen prompts and optional sound alerts ensure no age-restricted sale ever slips through without a check.</p>
         </div>
 
-        <div class="feature-card fade-up" style="transition-delay: 0.4s;">
+        <div class="feature-card fade-up" style="transition-delay: 0.25s;">
           <div class="feature-icon">🔒</div>
           <h3>Secure &amp; Private</h3>
           <p>Date of birth data is never stored after verification. AgeGuard is fully GDPR-compliant and never shares customer data.</p>
@@ -921,11 +907,8 @@
           <ul class="pricing-features">
             <li>Unlimited POS locations</li>
             <li>Date of birth picker</li>
-            <li>Order tagging &amp; notes</li>
-            <li>Analytics dashboard</li>
             <li>Challenge 25 mode</li>
             <li>Fully customizable thresholds &amp; prompts</li>
-            <li>CSV export</li>
             <li>Staff reminders &amp; alerts</li>
             <li>Secure &amp; private — zero data storage</li>
           </ul>
@@ -1047,7 +1030,7 @@
 
       <div class="footer-links-col">
         <h4>Legal &amp; Support</h4>
-        <a href="../privacy.html">Privacy Policy</a>
+        <a href="privacy.html">Privacy Policy</a>
         <a href="mailto:support@scurix.com">support@scurix.com</a>
         <a href="https://apps.shopify.com/" target="_blank" rel="noopener">Shopify App Store</a>
       </div>
