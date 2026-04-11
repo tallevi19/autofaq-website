@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — AgeGuard</title>
+  <meta name="description" content="AgeGuard Privacy Policy — how we handle your data when you use our Shopify POS age-verification app.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --purple: #5c2dfa;
+      --teal: #00d4a0;
+      --green: #00b386;
+      --dark: #0f0a2e;
+      --light: #f8f9fa;
+      --gray: #6b7280;
+      --gradient: linear-gradient(135deg, #5c2dfa 0%, #2c6ecb 50%, #00d4a0 100%);
+      --gradient-green: linear-gradient(135deg, #008060, #00b386);
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: #1a1a2e;
+      background: #fff;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(15, 10, 46, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.3rem;
+    }
+
+    .logo-icon {
+      width: 36px; height: 36px;
+      background: var(--gradient);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .nav-links { display: flex; gap: 2rem; align-items: center; }
+    .nav-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #fff; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 12px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+    }
+
+    .btn-primary {
+      background: var(--gradient-green);
+      color: #fff;
+      box-shadow: 0 4px 15px rgba(0,128,96,0.3);
+    }
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 25px rgba(0,128,96,0.45);
+    }
+
+    /* ── Hero bar ── */
+    .page-hero {
+      background: var(--dark);
+      padding: 9rem 2rem 5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      top: -50%; left: -50%;
+      width: 200%; height: 200%;
+      background:
+        radial-gradient(ellipse at 40% 60%, rgba(92,45,250,0.3) 0%, transparent 50%),
+        radial-gradient(ellipse at 65% 40%, rgba(0,212,160,0.15) 0%, transparent 50%);
+      animation: bgShift 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes bgShift {
+      0%   { transform: translate(0,0) scale(1); }
+      100% { transform: translate(-3%,3%) scale(1.05); }
+    }
+
+    .page-hero-content { position: relative; z-index: 2; }
+
+    .page-hero h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.75rem;
+    }
+
+    .page-hero p {
+      color: rgba(255,255,255,0.55);
+      font-size: 1rem;
+    }
+
+    /* ── Content ── */
+    .content-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 5rem 2rem 6rem;
+    }
+
+    .policy-section {
+      margin-bottom: 3rem;
+    }
+
+    .policy-section h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: #1a1a2e;
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--teal);
+      display: inline-block;
+    }
+
+    .policy-section p {
+      color: #374151;
+      font-size: 0.97rem;
+      line-height: 1.8;
+      margin-bottom: 0.85rem;
+    }
+
+    .policy-section ul {
+      list-style: none;
+      margin: 0.5rem 0 0.85rem;
+    }
+
+    .policy-section ul li {
+      padding: 0.3rem 0 0.3rem 1.4rem;
+      color: #374151;
+      font-size: 0.97rem;
+      line-height: 1.7;
+      position: relative;
+    }
+
+    .policy-section ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--teal);
+      font-weight: 600;
+    }
+
+    .highlight-box {
+      background: #f0fdf9;
+      border: 1px solid rgba(0,212,160,0.3);
+      border-left: 4px solid var(--teal);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+      color: #065f46;
+      font-size: 0.93rem;
+      line-height: 1.7;
+    }
+
+    .updated {
+      display: inline-block;
+      background: var(--light);
+      border: 1px solid #e5e7eb;
+      border-radius: 6px;
+      padding: 0.3rem 0.75rem;
+      font-size: 0.8rem;
+      color: var(--gray);
+      margin-bottom: 2.5rem;
+    }
+
+    a.inline-link {
+      color: var(--purple);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+
+    a.inline-link:hover { color: var(--teal); }
+
+    /* ── Footer ── */
+    footer {
+      background: #060412;
+      color: rgba(255,255,255,0.4);
+      padding: 3rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .footer-brand p { font-size: 0.85rem; max-width: 240px; line-height: 1.6; margin-top: 0.75rem; }
+
+    .footer-links-col h4 {
+      color: rgba(255,255,255,0.6);
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      margin-bottom: 0.85rem;
+    }
+
+    .footer-links-col a {
+      display: block;
+      color: rgba(255,255,255,0.45);
+      text-decoration: none;
+      font-size: 0.88rem;
+      margin-bottom: 0.45rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links-col a:hover { color: #fff; }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      text-align: center;
+      font-size: 0.82rem;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    @media (max-width: 650px) {
+      nav { padding: 0.75rem 1rem; }
+      .nav-links a:not(.btn) { display: none; }
+      .content-wrap { padding: 4rem 1.25rem 5rem; }
+      .footer-inner { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Nav ── -->
+  <nav>
+    <a href="index.html" class="logo">
+      <div class="logo-icon">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M12 2L3 7v5c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z" fill="white" opacity="0.95"/>
+          <text x="12" y="15.5" text-anchor="middle" fill="#5c2dfa" font-size="6.5" font-weight="800" font-family="Inter, sans-serif">18+</text>
+        </svg>
+      </div>
+      AgeGuard
+    </a>
+    <div class="nav-links">
+      <a href="index.html#how-it-works">How It Works</a>
+      <a href="index.html#features">Features</a>
+      <a href="index.html#pricing">Pricing</a>
+      <a href="index.html#faq">FAQ</a>
+      <a href="privacy.html" style="color:#fff;">Privacy</a>
+      <a href="https://apps.shopify.com/" class="btn btn-primary" style="padding: 0.55rem 1.2rem; font-size: 0.88rem;">Install Free</a>
+    </div>
+  </nav>
+
+  <!-- ── Hero bar ── -->
+  <div class="page-hero">
+    <div class="page-hero-content">
+      <h1>Privacy Policy</h1>
+      <p>Last updated: April 2026</p>
+    </div>
+  </div>
+
+  <!-- ── Content ── -->
+  <div class="content-wrap">
+
+    <span class="updated">Effective date: 1 April 2026</span>
+
+    <div class="policy-section">
+      <h2>Overview</h2>
+      <p>AgeGuard ("we", "our", or "us") is a Shopify POS application developed by Scurix. This Privacy Policy explains what information we collect when you install and use AgeGuard, how we use it, and what rights you have in relation to it.</p>
+      <p>We have designed AgeGuard with privacy as a core principle. We collect only what is strictly necessary to operate the service, and we never sell or share personal data with third parties for commercial purposes.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>What We Do NOT Collect</h2>
+      <div class="highlight-box">
+        AgeGuard does <strong>not store</strong> customers' dates of birth. The DOB entered at the point of sale is used only to compute whether the customer meets the minimum age threshold — the raw value is discarded immediately after that calculation.
+      </div>
+      <p>We also do not collect:</p>
+      <ul>
+        <li>Customer names, email addresses, or contact details</li>
+        <li>Payment information of any kind</li>
+        <li>Biometric data or identity document scans</li>
+        <li>Browsing history or behavioural analytics</li>
+        <li>Cookies or tracking pixels on any end-user device</li>
+      </ul>
+    </div>
+
+    <div class="policy-section">
+      <h2>What We Do Collect</h2>
+      <p>To operate the app and provide your business with a compliance record, AgeGuard stores the following minimal data points each time a verification is performed:</p>
+      <ul>
+        <li><strong>Verification outcome</strong> — pass or fail (age threshold met / not met)</li>
+        <li><strong>Timestamp</strong> — date and time of the check (UTC)</li>
+        <li><strong>Location &amp; register</strong> — your Shopify POS location ID and device ID</li>
+        <li><strong>Order reference</strong> — the Shopify order or cart ID associated with the check</li>
+        <li><strong>Staff ID</strong> — the Shopify staff account that performed the check</li>
+      </ul>
+      <p>None of these fields contain the customer's date of birth or any other personal information belonging to the customer.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Shopify API Access</h2>
+      <p>AgeGuard requests the following Shopify API scopes in order to function:</p>
+      <ul>
+        <li><strong>read_orders / write_orders</strong> — to tag verified orders and add internal notes</li>
+        <li><strong>read_products</strong> — to identify age-restricted products in the cart</li>
+        <li><strong>read_locations</strong> — to identify which store location the check was performed at</li>
+      </ul>
+      <p>We access only the minimum data required to perform these operations. We do not read, store, or process any other Shopify store data.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Data Retention</h2>
+      <p>Verification outcome records (as listed above) are retained for <strong>90 days</strong> from the date of the check, after which they are automatically and permanently deleted from our systems.</p>
+      <p>If you uninstall AgeGuard from your Shopify store, all records associated with your store are deleted within 30 days of uninstallation.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Data Storage &amp; Security</h2>
+      <p>All data is stored on servers located within the European Economic Area (EEA) and is encrypted at rest (AES-256) and in transit (TLS 1.2+). Access is restricted to authorised Scurix personnel only, and only where necessary for support or maintenance purposes.</p>
+      <p>We do not use third-party analytics services, advertising networks, or data brokers in connection with AgeGuard.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>GDPR &amp; CCPA Compliance</h2>
+      <p>Because AgeGuard does not store customers' dates of birth or any other customer personal data, your obligations under GDPR (EU) 2016/679 and the California Consumer Privacy Act (CCPA) with respect to age verification data are significantly reduced.</p>
+      <p>The verification outcome records we do retain relate to your business operations (order compliance records) rather than to any identified or identifiable natural person. Accordingly, these records do not constitute personal data under GDPR Article 4(1).</p>
+      <p>If you have specific questions about your compliance obligations, we recommend consulting a qualified legal adviser.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Merchant Rights</h2>
+      <p>As the merchant (data controller for your store), you have the right to:</p>
+      <ul>
+        <li>Request a full export of your store's verification records at any time</li>
+        <li>Request early deletion of your records before the 90-day window expires</li>
+        <li>Receive clarification on how we process any data associated with your store</li>
+      </ul>
+      <p>To exercise any of these rights, contact us at <a href="mailto:support@scurix.com" class="inline-link">support@scurix.com</a>. We will respond within 5 business days.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. When we do, we will revise the "Last updated" date at the top of this page and, where the changes are material, notify you via the Shopify admin notification system.</p>
+      <p>Continued use of AgeGuard after any changes constitutes your acceptance of the updated policy.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Contact</h2>
+      <p>If you have any questions about this Privacy Policy or how your data is handled, please contact us:</p>
+      <ul>
+        <li>Email: <a href="mailto:support@scurix.com" class="inline-link">support@scurix.com</a></li>
+        <li>Company: Scurix</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <div class="logo-icon">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M12 2L3 7v5c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z" fill="white" opacity="0.95"/>
+              <text x="12" y="15.5" text-anchor="middle" fill="#5c2dfa" font-size="6.5" font-weight="800" font-family="Inter, sans-serif">18+</text>
+            </svg>
+          </div>
+          AgeGuard
+        </a>
+        <p>Age verification for Shopify POS. Keep your business compliant and your customers safe.</p>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Product</h4>
+        <a href="index.html#how-it-works">How It Works</a>
+        <a href="index.html#features">Features</a>
+        <a href="index.html#pricing">Pricing</a>
+        <a href="index.html#faq">FAQ</a>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Legal &amp; Support</h4>
+        <a href="privacy.html" style="color:#fff;">Privacy Policy</a>
+        <a href="mailto:support@scurix.com">support@scurix.com</a>
+        <a href="https://apps.shopify.com/" target="_blank" rel="noopener">Shopify App Store</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 AgeGuard. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
