@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — Scurix Sticky Add to Cart Bar</title>
+  <meta name="description" content="Privacy Policy for the Scurix Sticky Add to Cart Bar Shopify app — what we collect, how we use it, and your rights.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --cream:        #faf6ef;
+      --cream-deep:   #f2ebdd;
+      --rose:         #d3c0c0;
+      --rose-soft:    #e4d4d4;
+      --rose-faint:   #f1e6e6;
+      --green:        #0a5c3e;
+      --green-bright: #00a06a;
+      --mint:         #c7ebd4;
+      --ink:          #0e0e0e;
+      --gray:         #6b6b6b;
+      --gray-soft:    #e7e2d7;
+      --gradient-green: linear-gradient(135deg, #0a5c3e 0%, #00a06a 100%);
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--ink);
+      background: var(--cream);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(14, 14, 14, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      text-decoration: none;
+      color: #fff;
+      font-weight: 800;
+      font-size: 1.05rem;
+      letter-spacing: -0.01em;
+    }
+
+    .logo-icon {
+      width: 36px; height: 36px;
+      background: var(--ink);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-links { display: flex; gap: 1.75rem; align-items: center; }
+    .nav-links a {
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: #fff; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.75rem 1.5rem;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 0.95rem;
+      text-decoration: none;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      border: none;
+      font-family: inherit;
+    }
+
+    .btn-green {
+      background: var(--gradient-green);
+      color: #fff;
+      box-shadow: 0 6px 18px rgba(10, 92, 62, 0.25);
+    }
+    .btn-green:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 10px 25px rgba(10, 92, 62, 0.35);
+    }
+
+    /* ── Page hero ── */
+    .page-hero {
+      background: var(--ink);
+      padding: 9rem 2rem 4.5rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .page-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 50% 30%, rgba(0, 160, 106, 0.22) 0%, transparent 60%),
+        radial-gradient(ellipse at 50% 100%, rgba(211, 192, 192, 0.12) 0%, transparent 70%);
+    }
+
+    .page-hero-content { position: relative; z-index: 2; }
+
+    .page-hero h1 {
+      font-size: clamp(2rem, 5vw, 3rem);
+      font-weight: 800;
+      color: #fff;
+      letter-spacing: -0.03em;
+      margin-bottom: 0.6rem;
+    }
+
+    .page-hero p {
+      color: rgba(255,255,255,0.55);
+      font-size: 1rem;
+    }
+
+    /* ── Content ── */
+    .content-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 4.5rem 2rem 5.5rem;
+    }
+
+    .updated {
+      display: inline-block;
+      background: #fff;
+      border: 1px solid var(--gray-soft);
+      border-radius: 6px;
+      padding: 0.3rem 0.75rem;
+      font-size: 0.8rem;
+      color: var(--gray);
+      margin-bottom: 2.5rem;
+    }
+
+    .policy-section {
+      margin-bottom: 3rem;
+    }
+
+    .policy-section h2 {
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--ink);
+      margin-bottom: 0.9rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--green-bright);
+      display: inline-block;
+    }
+
+    .policy-section p {
+      color: #2f2f2f;
+      font-size: 0.97rem;
+      line-height: 1.8;
+      margin-bottom: 0.85rem;
+    }
+
+    .policy-section ul {
+      list-style: none;
+      margin: 0.5rem 0 0.85rem;
+    }
+
+    .policy-section ul li {
+      padding: 0.3rem 0 0.3rem 1.4rem;
+      color: #2f2f2f;
+      font-size: 0.97rem;
+      line-height: 1.7;
+      position: relative;
+    }
+
+    .policy-section ul li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--green-bright);
+      font-weight: 600;
+    }
+
+    .highlight-box {
+      background: #f0fbf5;
+      border: 1px solid rgba(0,160,106,0.25);
+      border-left: 4px solid var(--green-bright);
+      border-radius: 8px;
+      padding: 1rem 1.25rem;
+      margin: 1rem 0;
+      color: #075c3e;
+      font-size: 0.93rem;
+      line-height: 1.7;
+    }
+
+    a.inline-link {
+      color: var(--green);
+      text-decoration: underline;
+      text-underline-offset: 2px;
+    }
+    a.inline-link:hover { color: var(--green-bright); }
+
+    /* ── Footer ── */
+    footer {
+      background: #060606;
+      color: rgba(255,255,255,0.45);
+      padding: 3rem 2rem 2.25rem;
+    }
+
+    .footer-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-bottom: 2rem;
+    }
+
+    .footer-brand .logo { margin-bottom: 0.75rem; }
+    .footer-brand p { font-size: 0.85rem; max-width: 260px; line-height: 1.65; }
+
+    .footer-links-col h4 {
+      color: rgba(255,255,255,0.65);
+      font-size: 0.72rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.9rem;
+    }
+
+    .footer-links-col a {
+      display: block;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      font-size: 0.88rem;
+      margin-bottom: 0.45rem;
+      transition: color 0.2s;
+    }
+
+    .footer-links-col a:hover { color: #fff; }
+
+    .footer-bottom {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding-top: 1.25rem;
+      border-top: 1px solid rgba(255,255,255,0.07);
+      text-align: center;
+      font-size: 0.8rem;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    @media (max-width: 650px) {
+      nav { padding: 0.75rem 1rem; }
+      .nav-links a:not(.btn) { display: none; }
+      .content-wrap { padding: 3.5rem 1.25rem 4.5rem; }
+      .footer-inner { flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── Nav ── -->
+  <nav>
+    <a href="index.html" class="logo">
+      <span class="logo-icon">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M5 7h14l-1 11a2 2 0 0 1-2 1.8H8a2 2 0 0 1-2-1.8L5 7Z" stroke="#f2ebdd" stroke-width="1.6" stroke-linejoin="round"/>
+          <path d="M9 7V5.5A3 3 0 0 1 12 2.5 3 3 0 0 1 15 5.5V7" stroke="#f2ebdd" stroke-width="1.6" stroke-linecap="round"/>
+          <circle cx="16.5" cy="15.5" r="3.2" fill="#00a06a"/>
+          <path d="M16.5 14v3M15 15.5h3" stroke="#fff" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+      </span>
+      Scurix Sticky Bar
+    </a>
+    <div class="nav-links">
+      <a href="index.html#features">Features</a>
+      <a href="index.html#how-it-works">How it works</a>
+      <a href="privacy.html" style="color:#fff;">Privacy</a>
+      <a href="mailto:support@scurix.com">Support</a>
+      <a href="https://apps.shopify.com/" target="_blank" rel="noopener" class="btn btn-green" style="padding: 0.55rem 1.1rem; font-size: 0.85rem;">Install on Shopify</a>
+    </div>
+  </nav>
+
+  <!-- ── Page hero ── -->
+  <div class="page-hero">
+    <div class="page-hero-content">
+      <h1>Privacy Policy</h1>
+      <p>Last updated: April 2026</p>
+    </div>
+  </div>
+
+  <!-- ── Content ── -->
+  <div class="content-wrap">
+
+    <span class="updated">Effective date: 1 April 2026</span>
+
+    <div class="policy-section">
+      <h2>Overview</h2>
+      <p>Scurix Sticky Add to Cart Bar ("the app", "we", "our", or "us") is a Shopify application developed by Scurix. This Privacy Policy explains what information the app accesses and stores when you install and use it in your Shopify store, how that information is used, and what rights you have in relation to it.</p>
+      <p>We have designed the app with privacy as a core principle. It accesses only what is strictly necessary to render a sticky add-to-cart bar on your storefront, and it does not sell or share data with third parties for advertising or other commercial purposes.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>What the app does NOT collect</h2>
+      <div class="highlight-box">
+        The Scurix Sticky Add to Cart Bar does <strong>not</strong> collect personal data about your customers. It does not set tracking cookies, does not fingerprint visitors, and does not send shopper behavior to any third-party analytics or advertising network.
+      </div>
+      <p>Specifically, the app does not collect:</p>
+      <ul>
+        <li>Customer names, email addresses, phone numbers or any other contact details</li>
+        <li>Payment or billing information of any kind</li>
+        <li>IP addresses or device fingerprints of your customers</li>
+        <li>Behavioural analytics, session recordings or heatmaps</li>
+        <li>Marketing cookies or third-party tracking pixels</li>
+      </ul>
+    </div>
+
+    <div class="policy-section">
+      <h2>What the app does collect</h2>
+      <p>To operate, the app stores the following minimal data associated with your <strong>Shopify store</strong> (not your customers):</p>
+      <ul>
+        <li><strong>Store identifier</strong> — your Shopify shop domain (e.g. <em>my-store.myshopify.com</em>)</li>
+        <li><strong>Installation metadata</strong> — install date, app version, plan status</li>
+        <li><strong>App settings</strong> — the configuration you save in the app editor (enabled state, position, colors, typography, content toggles, scroll trigger, custom CSS, etc.)</li>
+        <li><strong>Merchant contact</strong> — the Shopify-owner email address, used only to respond to support requests you initiate</li>
+      </ul>
+      <p>When a shopper loads a product page in your store, the app reads public product data (title, price, compare-at price, featured image, variant ID) from Shopify's storefront in order to render the bar. This product data is not retained on our servers — it is used only to display the bar in the shopper's browser.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Shopify API access</h2>
+      <p>The app requests only the Shopify scopes required to operate:</p>
+      <ul>
+        <li><strong>read_products</strong> — to read title, price, compare-at price, image and availability for the product currently being viewed, so the bar can display them</li>
+        <li><strong>read_themes</strong> — to inject the app embed block and apply your saved customization</li>
+      </ul>
+      <p>We do not request or use any scope that grants access to customer records, orders, or payment information.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Cookies &amp; tracking</h2>
+      <p>The Scurix Sticky Add to Cart Bar does not set cookies or use local storage on your customers' devices for tracking. The app admin (the editor used by you, the merchant) may use a single session cookie provided by Shopify for authentication — this is standard for all embedded Shopify apps and is managed by Shopify itself.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Data storage &amp; security</h2>
+      <p>All app settings and metadata are stored on servers hosted within the European Economic Area (EEA). Data is encrypted at rest (AES-256) and in transit (TLS 1.2+). Access is restricted to authorised Scurix personnel, and only where necessary for support, debugging or maintenance.</p>
+      <p>We do not use third-party analytics services, advertising networks or data brokers in connection with the app.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Data retention &amp; uninstall</h2>
+      <p>Your app settings are retained for as long as the app is installed in your Shopify store. If you uninstall the app, all data associated with your store is deleted automatically within 30 days, in line with Shopify's app data lifecycle.</p>
+      <p>If Shopify sends us a data erasure or data request webhook on behalf of a customer (<em>customers/redact</em>, <em>shop/redact</em>, <em>customers/data_request</em>), we process the request in accordance with Shopify's Partner requirements — typically, these are no-ops for this app because no customer personal data is stored.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>GDPR &amp; CCPA</h2>
+      <p>Because the app does not store personal data about your customers, your obligations as data controller under GDPR (EU) 2016/679 and the California Consumer Privacy Act (CCPA) in relation to this app are significantly reduced.</p>
+      <p>The limited data we do retain (your shop domain and saved settings) relates to your business, not to any identified natural person, and is processed under a legitimate-interest basis to operate the service you have installed. If you have specific questions about your compliance obligations, we recommend consulting a qualified legal adviser.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Your rights as a merchant</h2>
+      <p>As the merchant, you have the right to:</p>
+      <ul>
+        <li>Access the settings and metadata we hold about your installation</li>
+        <li>Request early deletion of this data at any time, without uninstalling</li>
+        <li>Export your saved configuration</li>
+        <li>Receive clarification on how any data associated with your store is processed</li>
+      </ul>
+      <p>To exercise any of these rights, contact us at <a href="mailto:support@scurix.com" class="inline-link">support@scurix.com</a>. We will respond within 5 business days.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Changes to this policy</h2>
+      <p>We may update this Privacy Policy from time to time. When we do, we will revise the "Last updated" date at the top of the page and, where the changes are material, notify you via the Shopify admin notification system.</p>
+      <p>Continued use of the app after any changes constitutes your acceptance of the updated policy.</p>
+    </div>
+
+    <div class="policy-section">
+      <h2>Contact</h2>
+      <p>If you have any questions about this Privacy Policy or how your data is handled, please contact us:</p>
+      <ul>
+        <li>Email: <a href="mailto:support@scurix.com" class="inline-link">support@scurix.com</a></li>
+        <li>Company: Scurix</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <span class="logo-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <path d="M5 7h14l-1 11a2 2 0 0 1-2 1.8H8a2 2 0 0 1-2-1.8L5 7Z" stroke="#f2ebdd" stroke-width="1.6" stroke-linejoin="round"/>
+              <path d="M9 7V5.5A3 3 0 0 1 12 2.5 3 3 0 0 1 15 5.5V7" stroke="#f2ebdd" stroke-width="1.6" stroke-linecap="round"/>
+              <circle cx="16.5" cy="15.5" r="3.2" fill="#00a06a"/>
+              <path d="M16.5 14v3M15 15.5h3" stroke="#fff" stroke-width="1.3" stroke-linecap="round"/>
+            </svg>
+          </span>
+          Scurix Sticky Bar
+        </a>
+        <p>A sticky add-to-cart bar for Shopify, built by Scurix. Match your brand, lift your conversions.</p>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Product</h4>
+        <a href="index.html#features">Features</a>
+        <a href="index.html#how-it-works">How it works</a>
+        <a href="https://apps.shopify.com/" target="_blank" rel="noopener">Shopify App Store</a>
+      </div>
+
+      <div class="footer-links-col">
+        <h4>Legal &amp; Support</h4>
+        <a href="privacy.html" style="color:#fff;">Privacy Policy</a>
+        <a href="mailto:support@scurix.com">support@scurix.com</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Scurix. All rights reserved.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
