@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Scurix Video Background – Embed Videos Anywhere in Your Shopify Store</title>
+  <meta name="description" content="Embed YouTube, Vimeo, and TikTok videos as backgrounds, replacements, or inline blocks anywhere in your Shopify store. No coding required.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --orange:        #F26419;
+      --orange-dark:   #D94F00;
+      --orange-light:  #FF8C42;
+      --orange-pale:   #FFF4EE;
+      --cream:         #FEFAF6;
+      --white:         #FFFFFF;
+      --text-dark:     #1C1917;
+      --text-mid:      #44403C;
+      --text-muted:    #78716C;
+      --border:        #E7E5E4;
+      --grad:          linear-gradient(135deg, #F26419 0%, #E84000 100%);
+      --grad-hero:     linear-gradient(160deg, #FFF8F2 0%, #FFE8D6 50%, #FFDEC8 100%);
+      --shadow-card:   0 2px 16px rgba(242,100,25,0.08), 0 1px 4px rgba(0,0,0,0.06);
+      --shadow-btn:    0 4px 20px rgba(242,100,25,0.35);
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-dark);
+      background: var(--white);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ─── NAV ─── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      padding: 0 2rem;
+      height: 64px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      background: rgba(255,255,255,0.88);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid rgba(242,100,25,0.12);
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text-dark);
+    }
+
+    .nav-logo svg { flex-shrink: 0; }
+
+    .nav-logo-text {
+      font-size: 0.95rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      font-size: 0.875rem;
+      font-weight: 500;
+      color: var(--text-mid);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--orange); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 0.6rem 1.4rem;
+      border-radius: 8px;
+      font-size: 0.875rem;
+      font-weight: 600;
+      text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s, opacity 0.15s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: var(--grad);
+      color: #fff;
+      box-shadow: var(--shadow-btn);
+    }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 6px 28px rgba(242,100,25,0.45); }
+    .btn-outline {
+      background: transparent;
+      color: var(--orange);
+      border: 2px solid var(--orange);
+    }
+    .btn-outline:hover { background: var(--orange-pale); }
+    .btn-lg {
+      padding: 0.85rem 2rem;
+      font-size: 1rem;
+      border-radius: 10px;
+    }
+
+    /* ─── HERO ─── */
+    .hero {
+      min-height: 100vh;
+      background: var(--grad-hero);
+      display: flex;
+      align-items: center;
+      padding: 7rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -120px; right: -120px;
+      width: 500px; height: 500px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(242,100,25,0.18) 0%, transparent 70%);
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: -80px;
+      width: 380px; height: 380px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(255,140,66,0.14) 0%, transparent 70%);
+    }
+
+    .hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(242,100,25,0.12);
+      color: var(--orange-dark);
+      border: 1px solid rgba(242,100,25,0.25);
+      border-radius: 100px;
+      padding: 0.3rem 0.9rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.2rem, 4vw, 3.2rem);
+      font-weight: 900;
+      line-height: 1.1;
+      letter-spacing: -0.03em;
+      color: var(--text-dark);
+      margin-bottom: 1.25rem;
+    }
+
+    .hero h1 span {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.1rem;
+      color: var(--text-mid);
+      margin-bottom: 2rem;
+      max-width: 480px;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .hero-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 0.35rem 0.85rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-mid);
+      box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+    }
+    .pill .dot {
+      width: 7px; height: 7px;
+      border-radius: 50%;
+      background: var(--grad);
+      flex-shrink: 0;
+    }
+
+    /* hero mockup */
+    .hero-visual {
+      position: relative;
+    }
+
+    .hero-card {
+      background: var(--white);
+      border-radius: 16px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.12), 0 4px 16px rgba(242,100,25,0.1);
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,0.9);
+    }
+
+    .hero-card-header {
+      background: #F9FAFB;
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 1.25rem;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+    .hero-card-header .dot-row {
+      display: flex; gap: 5px;
+    }
+    .hero-card-header .dot-row span {
+      width: 10px; height: 10px;
+      border-radius: 50%;
+    }
+    .d-red   { background: #FF5F57; }
+    .d-amber { background: #FFBD2E; }
+    .d-green { background: #28C840; }
+
+    .hero-card-title {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: var(--text-muted);
+      margin-left: 4px;
+    }
+
+    .hero-card-body {
+      padding: 1.25rem;
+    }
+
+    .dash-row {
+      display: flex;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .dash-stat {
+      flex: 1;
+      background: var(--cream);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 0.75rem 1rem;
+    }
+    .dash-stat-label { font-size: 0.7rem; color: var(--text-muted); font-weight: 500; margin-bottom: 0.2rem; }
+    .dash-stat-value { font-size: 1.1rem; font-weight: 700; color: var(--text-dark); }
+    .dash-stat-value span { font-size: 0.75rem; font-weight: 600; color: #16A34A; }
+
+    .dash-banner {
+      background: #FFFBEB;
+      border: 1px solid #FCD34D;
+      border-radius: 8px;
+      padding: 0.6rem 0.85rem;
+      font-size: 0.75rem;
+      color: #92400E;
+      margin-bottom: 0.75rem;
+    }
+
+    .video-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.75rem;
+    }
+    .video-row:last-child { border-bottom: none; }
+    .video-row .label { font-weight: 600; color: var(--text-dark); }
+    .tag {
+      padding: 0.1rem 0.5rem;
+      border-radius: 100px;
+      font-size: 0.65rem;
+      font-weight: 600;
+    }
+    .tag-yt  { background: #FEE2E2; color: #B91C1C; }
+    .tag-on  { background: #DCFCE7; color: #15803D; }
+    .tag-off { background: #F3F4F6; color: #6B7280; }
+
+    /* ─── SECTION COMMON ─── */
+    section { padding: 5rem 2rem; }
+
+    .section-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-label {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--orange);
+      margin-bottom: 0.75rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: var(--text-dark);
+      margin-bottom: 1rem;
+    }
+
+    .section-title span {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .section-desc {
+      font-size: 1.05rem;
+      color: var(--text-mid);
+      max-width: 540px;
+    }
+
+    /* ─── FEATURES GRID ─── */
+    .features { background: var(--white); }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.25rem;
+      margin-top: 3rem;
+    }
+
+    .feature-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.75rem;
+      transition: box-shadow 0.2s, transform 0.2s, border-color 0.2s;
+    }
+    .feature-card:hover {
+      box-shadow: var(--shadow-card);
+      transform: translateY(-2px);
+      border-color: rgba(242,100,25,0.3);
+    }
+
+    .feature-icon {
+      width: 48px; height: 48px;
+      border-radius: 12px;
+      background: var(--orange-pale);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+    }
+
+    .feature-card h3 {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .feature-card p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      line-height: 1.6;
+    }
+
+    /* ─── HOW IT WORKS ─── */
+    .how { background: var(--cream); }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+      position: relative;
+    }
+
+    .step {
+      text-align: center;
+    }
+
+    .step-num {
+      width: 52px; height: 52px;
+      border-radius: 50%;
+      background: var(--grad);
+      color: #fff;
+      font-size: 1.1rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.25rem;
+      box-shadow: 0 4px 16px rgba(242,100,25,0.3);
+    }
+
+    .step h3 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 0.4rem;
+    }
+
+    .step p {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+    }
+
+    /* ─── VIDEO TYPES ─── */
+    .video-types { background: var(--white); }
+
+    .types-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.25rem;
+      margin-top: 3rem;
+    }
+
+    .type-card {
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      padding: 1.5rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .type-card:hover {
+      border-color: var(--orange);
+      box-shadow: 0 4px 20px rgba(242,100,25,0.12);
+    }
+
+    .type-radio {
+      width: 18px; height: 18px;
+      border-radius: 50%;
+      border: 2px solid var(--orange);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 0.75rem;
+    }
+    .type-radio.active::after {
+      content: '';
+      width: 8px; height: 8px;
+      border-radius: 50%;
+      background: var(--orange);
+    }
+
+    .type-card h3 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 0.3rem;
+    }
+
+    .type-card p {
+      font-size: 0.825rem;
+      color: var(--text-muted);
+    }
+
+    /* ─── PLATFORMS ─── */
+    .platforms { background: var(--orange-pale); }
+
+    .platform-logos {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.25rem;
+      margin-top: 2.5rem;
+      justify-content: center;
+    }
+
+    .platform-chip {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      padding: 0.6rem 1.4rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: var(--text-dark);
+      box-shadow: 0 1px 6px rgba(0,0,0,0.05);
+    }
+
+    /* ─── CTA ─── */
+    .cta-section {
+      background: linear-gradient(135deg, #F26419 0%, #D94F00 100%);
+      color: #fff;
+      text-align: center;
+      padding: 5rem 2rem;
+    }
+
+    .cta-section h2 {
+      font-size: clamp(1.75rem, 3.5vw, 2.75rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      margin-bottom: 2.5rem;
+      max-width: 480px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .btn-white {
+      background: #fff;
+      color: var(--orange-dark);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+    }
+    .btn-white:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.25);
+      opacity: 0.95;
+    }
+
+    /* ─── FOOTER ─── */
+    footer {
+      background: #1C1917;
+      color: #D6D3D1;
+      padding: 3rem 2rem;
+    }
+
+    .footer-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1.5rem;
+    }
+
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .footer-brand-name {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .footer-brand-sub {
+      font-size: 0.75rem;
+      color: #A8A29E;
+      margin-top: 2px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      list-style: none;
+    }
+
+    .footer-links a {
+      font-size: 0.85rem;
+      color: #A8A29E;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--orange-light); }
+
+    .footer-bottom {
+      max-width: 1100px;
+      margin: 1.5rem auto 0;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.8rem;
+      color: #78716C;
+      text-align: center;
+    }
+
+    /* ─── RESPONSIVE ─── */
+    @media (max-width: 768px) {
+      .hero-inner { grid-template-columns: 1fr; gap: 2.5rem; }
+      .hero { padding-top: 6rem; }
+      nav { padding: 0 1rem; }
+      .nav-links { display: none; }
+      .hero-visual { order: -1; }
+      .hero-card-body { padding: 1rem; }
+    }
+
+    @media (max-width: 480px) {
+      section { padding: 3.5rem 1.25rem; }
+      .hero { padding: 5.5rem 1.25rem 3rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a class="nav-logo" href="#">
+      <!-- Scurix "S" icon -->
+      <svg width="34" height="34" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="200" height="200" rx="44" fill="#1C1917"/>
+        <path d="M148 52C148 52 144 44 130 44H80C66 44 52 56 52 72C52 88 62 96 80 100L120 108C138 112 148 120 148 136C148 152 136 160 120 160H70C56 160 48 152 48 152" stroke="url(#sg)" stroke-width="16" stroke-linecap="round"/>
+        <rect x="72" y="82" width="56" height="40" rx="8" fill="url(#sg2)"/>
+        <path d="M93 96L113 102L93 108V96Z" fill="white"/>
+        <defs>
+          <linearGradient id="sg" x1="48" y1="44" x2="148" y2="160" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FF8C42"/>
+            <stop offset="1" stop-color="#E84000"/>
+          </linearGradient>
+          <linearGradient id="sg2" x1="72" y1="82" x2="128" y2="122" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FF8C42"/>
+            <stop offset="1" stop-color="#E84000"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      <span class="nav-logo-text">Scurix Video Background</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#features">Features</a></li>
+      <li><a href="#how-it-works">How it works</a></li>
+      <li><a href="#video-types">Video types</a></li>
+      <li><a href="mailto:support@scurix.com">Support</a></li>
+    </ul>
+    <a class="btn btn-primary" href="https://apps.shopify.com/scurix-video-background" target="_blank" rel="noopener">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z"/></svg>
+      Add to Shopify
+    </a>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-badge">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><polygon points="5,3 19,12 5,21"/></svg>
+          Shopify App
+        </div>
+        <h1>Embed videos <span>anywhere in your store</span></h1>
+        <p>Use YouTube, Vimeo, and TikTok as backgrounds, replacements, or responsive content blocks — with zero code.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg" href="https://apps.shopify.com/scurix-video-background" target="_blank" rel="noopener">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M15.5 6.5C15.5 8.43 13.93 10 12 10C10.07 10 8.5 8.43 8.5 6.5C8.5 4.57 10.07 3 12 3C13.93 3 15.5 4.57 15.5 6.5ZM5 20C5 17.33 8.13 15.25 12 15.25C15.87 15.25 19 17.33 19 20H5Z"/></svg>
+            Get it on Shopify
+          </a>
+          <a class="btn btn-outline btn-lg" href="mailto:support@scurix.com">
+            Contact support
+          </a>
+        </div>
+        <div class="hero-pills">
+          <span class="pill"><span class="dot"></span>No coding</span>
+          <span class="pill"><span class="dot"></span>Flexible placement</span>
+          <span class="pill"><span class="dot"></span>Full video control</span>
+          <span class="pill"><span class="dot"></span>Free plan available</span>
+        </div>
+      </div>
+
+      <!-- Dashboard mockup -->
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="hero-card-header">
+            <div class="dot-row">
+              <span class="d-red"></span>
+              <span class="d-amber"></span>
+              <span class="d-green"></span>
+            </div>
+            <span class="hero-card-title">Scurix Video Background — Dashboard</span>
+          </div>
+          <div class="hero-card-body">
+            <div class="dash-banner">
+              ⚠ Enable the app in your theme editor to start showing videos.
+            </div>
+            <div class="dash-row">
+              <div class="dash-stat">
+                <div class="dash-stat-label">App status</div>
+                <div class="dash-stat-value"><span>● Active</span></div>
+              </div>
+              <div class="dash-stat">
+                <div class="dash-stat-label">Videos</div>
+                <div class="dash-stat-value">3 <span>active</span></div>
+              </div>
+              <div class="dash-stat">
+                <div class="dash-stat-label">Plan</div>
+                <div class="dash-stat-value" style="font-size:0.9rem;">Unlimited</div>
+              </div>
+            </div>
+            <div style="font-size:0.75rem;font-weight:700;color:var(--text-dark);margin:0.75rem 0 0.4rem;">My videos</div>
+            <div class="video-row">
+              <span class="label">Hero</span>
+              <span class="tag tag-yt">YouTube</span>
+              <span style="color:var(--text-muted);font-size:0.7rem;">Background</span>
+              <span class="tag tag-on">On</span>
+            </div>
+            <div class="video-row">
+              <span class="label">Responsive</span>
+              <span class="tag tag-yt">YouTube</span>
+              <span style="color:var(--text-muted);font-size:0.7rem;">Replace</span>
+              <span class="tag tag-on">On</span>
+            </div>
+            <div class="video-row">
+              <span class="label">Page BG</span>
+              <span class="tag tag-yt">YouTube</span>
+              <span style="color:var(--text-muted);font-size:0.7rem;">Full-page</span>
+              <span class="tag tag-on">On</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features" id="features">
+    <div class="section-inner">
+      <span class="section-label">Features</span>
+      <h2 class="section-title">Everything you need to bring<br><span>video to your storefront</span></h2>
+      <p class="section-desc">Powerful controls for merchants, zero technical knowledge required.</p>
+
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">📺</div>
+          <h3>Multiple platforms</h3>
+          <p>Embed videos from YouTube, Vimeo, or TikTok. Just paste the link — no API keys or developer setup needed.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎯</div>
+          <h3>Page targeting</h3>
+          <p>Show a video only on your homepage, a specific product page, a collection, or any custom URL you choose.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">📐</div>
+          <h3>Flexible placement</h3>
+          <p>Target any element by CSS selector, or pick from built-in theme presets to place the video exactly where you want.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🎛️</div>
+          <h3>Full playback control</h3>
+          <p>Set autoplay, mute, loop, and playback speed. Style with custom overlay opacity and z-index for perfect layering.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">⚡</div>
+          <h3>Quick setup</h3>
+          <p>Install, enable the app embed in your theme editor, and add your first video in under two minutes — no code edits.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">🔁</div>
+          <h3>On / off control</h3>
+          <p>Enable or disable individual videos instantly from your dashboard without deleting any configuration.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="how" id="how-it-works">
+    <div class="section-inner">
+      <span class="section-label">How it works</span>
+      <h2 class="section-title">Up and running in<br><span>four simple steps</span></h2>
+
+      <div class="steps">
+        <div class="step">
+          <div class="step-num">1</div>
+          <h3>Install the app</h3>
+          <p>Add Scurix Video Background from the Shopify App Store to your store in one click.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <h3>Enable the embed</h3>
+          <p>Open your theme editor, navigate to App embeds, and toggle Scurix Video Background on.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <h3>Add a video</h3>
+          <p>Paste a YouTube, Vimeo, or TikTok URL, choose the page and placement type, and save.</p>
+        </div>
+        <div class="step">
+          <div class="step-num">4</div>
+          <h3>Go live</h3>
+          <p>Your video is live on your storefront. Enable, disable, or edit any time from your dashboard.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VIDEO TYPES -->
+  <section class="video-types" id="video-types">
+    <div class="section-inner">
+      <span class="section-label">Video types</span>
+      <h2 class="section-title">Choose <span>how video appears</span></h2>
+      <p class="section-desc">Four distinct placement modes for every use case in your store.</p>
+
+      <div class="types-grid">
+        <div class="type-card">
+          <div class="type-radio active"></div>
+          <h3>Background</h3>
+          <p>Plays behind an existing section — the section's content and text stay on top. Perfect for hero banners.</p>
+        </div>
+        <div class="type-card">
+          <div class="type-radio"></div>
+          <h3>Replace element</h3>
+          <p>Swaps a page element entirely for the video player. Great for product showcase sections.</p>
+        </div>
+        <div class="type-card">
+          <div class="type-radio"></div>
+          <h3>Full-page backdrop</h3>
+          <p>Fixed behind all page content, covering the entire viewport. No CSS selector needed.</p>
+        </div>
+        <div class="type-card">
+          <div class="type-radio"></div>
+          <h3>Inline embed</h3>
+          <p>Inserts a responsive 16:9 player directly above the target element as a content block.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PLATFORMS -->
+  <section class="platforms">
+    <div class="section-inner" style="text-align:center;">
+      <span class="section-label">Supported platforms</span>
+      <h2 class="section-title">Works with the platforms<br><span>your videos are already on</span></h2>
+      <div class="platform-logos">
+        <div class="platform-chip">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#FF0000"><path d="M23.5 6.19a3.02 3.02 0 0 0-2.12-2.14C19.54 3.5 12 3.5 12 3.5s-7.54 0-9.38.55A3.02 3.02 0 0 0 .5 6.19C0 8.04 0 12 0 12s0 3.96.5 5.81a3.02 3.02 0 0 0 2.12 2.14C4.46 20.5 12 20.5 12 20.5s7.54 0 9.38-.55a3.02 3.02 0 0 0 2.12-2.14C24 15.96 24 12 24 12s0-3.96-.5-5.81zM9.75 15.5v-7l6.5 3.5-6.5 3.5z"/></svg>
+          YouTube
+        </div>
+        <div class="platform-chip">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#1AB7EA"><path d="M12 0C5.37 0 0 5.37 0 12s5.37 12 12 12 12-5.37 12-12S18.63 0 12 0zm5.01 8.49l-1.56.71c-.15-.28-.4-.49-.71-.57V15.4a2 2 0 0 1-2 2H8.5a2 2 0 0 1-2-2V9.5a2 2 0 0 1 2-2h4.24c.73 0 1.38.39 1.74.98l2.53-1.15v1.16z"/></svg>
+          Vimeo
+        </div>
+        <div class="platform-chip">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="#000"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1V9.01a6.33 6.33 0 00-.79-.05 6.34 6.34 0 00-6.34 6.34 6.34 6.34 0 006.34 6.34 6.34 6.34 0 006.33-6.34V8.69a8.19 8.19 0 004.79 1.52V6.78a4.85 4.85 0 01-1.02-.09z"/></svg>
+          TikTok
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Ready to bring your store to life?</h2>
+    <p>Join merchants who use Scurix Video Background to captivate shoppers with video — no developer needed.</p>
+    <a class="btn btn-white btn-lg" href="https://apps.shopify.com/scurix-video-background" target="_blank" rel="noopener">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M20.5 3H3.5C2.12 3 1 4.12 1 5.5v13C1 19.88 2.12 21 3.5 21h17c1.38 0 2.5-1.12 2.5-2.5v-13C23 4.12 21.88 3 20.5 3zM12 17.5c-3.04 0-5.5-2.46-5.5-5.5S8.96 6.5 12 6.5s5.5 2.46 5.5 5.5-2.46 5.5-5.5 5.5zm0-9c-1.93 0-3.5 1.57-3.5 3.5s1.57 3.5 3.5 3.5 3.5-1.57 3.5-3.5-1.57-3.5-3.5-3.5z"/></svg>
+      Add to Shopify — It's Free
+    </a>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <svg width="36" height="36" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <rect width="200" height="200" rx="44" fill="#292524"/>
+          <path d="M148 52C148 52 144 44 130 44H80C66 44 52 56 52 72C52 88 62 96 80 100L120 108C138 112 148 120 148 136C148 152 136 160 120 160H70C56 160 48 152 48 152" stroke="url(#sfg)" stroke-width="16" stroke-linecap="round"/>
+          <rect x="72" y="82" width="56" height="40" rx="8" fill="url(#sfg2)"/>
+          <path d="M93 96L113 102L93 108V96Z" fill="white"/>
+          <defs>
+            <linearGradient id="sfg" x1="48" y1="44" x2="148" y2="160" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FF8C42"/><stop offset="1" stop-color="#E84000"/>
+            </linearGradient>
+            <linearGradient id="sfg2" x1="72" y1="82" x2="128" y2="122" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#FF8C42"/><stop offset="1" stop-color="#E84000"/>
+            </linearGradient>
+          </defs>
+        </svg>
+        <div>
+          <div class="footer-brand-name">Scurix Video Background</div>
+          <div class="footer-brand-sub">Shopify App by Scurix</div>
+        </div>
+      </div>
+      <ul class="footer-links">
+        <li><a href="https://apps.shopify.com/scurix-video-background" target="_blank" rel="noopener">Shopify App Store</a></li>
+        <li><a href="mailto:support@scurix.com">support@scurix.com</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2025 Scurix. All rights reserved.
+    </div>
+  </footer>
+
+</body>
+</html>

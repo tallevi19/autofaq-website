@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy – Scurix Video Background</title>
+  <meta name="description" content="Privacy Policy for the Scurix Video Background Shopify app.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    :root {
+      --orange:      #F26419;
+      --orange-dark: #D94F00;
+      --orange-pale: #FFF4EE;
+      --cream:       #FEFAF6;
+      --white:       #FFFFFF;
+      --text-dark:   #1C1917;
+      --text-mid:    #44403C;
+      --text-muted:  #78716C;
+      --border:      #E7E5E4;
+      --grad:        linear-gradient(135deg, #F26419 0%, #E84000 100%);
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+      color: var(--text-dark);
+      background: var(--cream);
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      background: rgba(255,255,255,0.9);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      color: var(--text-dark);
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    .back-link {
+      font-size: 0.85rem;
+      font-weight: 500;
+      color: var(--orange);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+    .back-link:hover { text-decoration: underline; }
+
+    /* HERO */
+    .page-hero {
+      background: linear-gradient(160deg, #FFF8F2 0%, #FFE8D6 100%);
+      border-bottom: 1px solid rgba(242,100,25,0.12);
+      padding: 3.5rem 2rem 3rem;
+      text-align: center;
+    }
+
+    .page-hero h1 {
+      font-size: clamp(1.75rem, 3vw, 2.5rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      color: var(--text-dark);
+      margin-bottom: 0.5rem;
+    }
+
+    .page-hero .meta {
+      font-size: 0.875rem;
+      color: var(--text-muted);
+      margin-bottom: 0.25rem;
+    }
+
+    /* CONTENT */
+    .content-wrap {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 3rem 2rem 5rem;
+    }
+
+    .toc {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.5rem 1.75rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .toc-title {
+      font-size: 0.8rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-muted);
+      margin-bottom: 0.75rem;
+    }
+
+    .toc ol {
+      padding-left: 1.25rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.3rem 1.5rem;
+    }
+
+    .toc a {
+      font-size: 0.875rem;
+      color: var(--orange);
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .toc a:hover { text-decoration: underline; }
+
+    .prose section {
+      margin-bottom: 2.75rem;
+      padding: 0;
+      background: none;
+    }
+
+    .prose h2 {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: var(--text-dark);
+      margin-bottom: 0.75rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--orange-pale);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .prose h2 .num {
+      background: var(--grad);
+      color: #fff;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 100px;
+      flex-shrink: 0;
+    }
+
+    .prose p {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      margin-bottom: 0.9rem;
+    }
+
+    .prose ul, .prose ol {
+      padding-left: 1.4rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .prose li {
+      font-size: 0.95rem;
+      color: var(--text-mid);
+      margin-bottom: 0.35rem;
+    }
+
+    .prose strong { color: var(--text-dark); font-weight: 600; }
+
+    .prose a {
+      color: var(--orange);
+      text-decoration: none;
+    }
+    .prose a:hover { text-decoration: underline; }
+
+    .info-box {
+      background: var(--orange-pale);
+      border-left: 4px solid var(--orange);
+      border-radius: 0 8px 8px 0;
+      padding: 1rem 1.25rem;
+      margin: 1.25rem 0;
+      font-size: 0.9rem;
+      color: var(--text-mid);
+    }
+
+    /* FOOTER */
+    footer {
+      background: #1C1917;
+      color: #A8A29E;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.82rem;
+    }
+
+    footer a { color: #F26419; text-decoration: none; }
+    footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      .toc ol { grid-template-columns: 1fr; }
+      .content-wrap { padding: 2rem 1.25rem 4rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a class="nav-logo" href="index.html">
+      <svg width="30" height="30" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <rect width="200" height="200" rx="44" fill="#1C1917"/>
+        <path d="M148 52C148 52 144 44 130 44H80C66 44 52 56 52 72C52 88 62 96 80 100L120 108C138 112 148 120 148 136C148 152 136 160 120 160H70C56 160 48 152 48 152" stroke="url(#pg)" stroke-width="16" stroke-linecap="round"/>
+        <rect x="72" y="82" width="56" height="40" rx="8" fill="url(#pg2)"/>
+        <path d="M93 96L113 102L93 108V96Z" fill="white"/>
+        <defs>
+          <linearGradient id="pg" x1="48" y1="44" x2="148" y2="160" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FF8C42"/><stop offset="1" stop-color="#E84000"/>
+          </linearGradient>
+          <linearGradient id="pg2" x1="72" y1="82" x2="128" y2="122" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#FF8C42"/><stop offset="1" stop-color="#E84000"/>
+          </linearGradient>
+        </defs>
+      </svg>
+      Scurix Video Background
+    </a>
+    <a class="back-link" href="index.html">
+      ← Back to home
+    </a>
+  </nav>
+
+  <div class="page-hero">
+    <h1>Privacy Policy</h1>
+    <p class="meta">Scurix Video Background — Shopify App</p>
+    <p class="meta">Last updated: April 28, 2025 &nbsp;·&nbsp; Effective: April 28, 2025</p>
+  </div>
+
+  <div class="content-wrap">
+
+    <div class="toc">
+      <div class="toc-title">Contents</div>
+      <ol>
+        <li><a href="#s1">Who we are</a></li>
+        <li><a href="#s2">Information we collect</a></li>
+        <li><a href="#s3">How we use your information</a></li>
+        <li><a href="#s4">Data storage &amp; security</a></li>
+        <li><a href="#s5">Third-party services</a></li>
+        <li><a href="#s6">Shopify platform</a></li>
+        <li><a href="#s7">Cookies</a></li>
+        <li><a href="#s8">Data retention</a></li>
+        <li><a href="#s9">Your rights</a></li>
+        <li><a href="#s10">Changes to this policy</a></li>
+        <li><a href="#s11">Contact us</a></li>
+      </ol>
+    </div>
+
+    <div class="info-box">
+      This Privacy Policy describes how Scurix ("we", "us", or "our") collects, uses, and protects information when you use the <strong>Scurix Video Background</strong> Shopify app. By installing or using the app, you agree to the practices described here.
+    </div>
+
+    <div class="prose">
+
+      <section id="s1">
+        <h2><span class="num">1</span> Who we are</h2>
+        <p>Scurix Video Background is a Shopify app developed and operated by Scurix. We build tools for Shopify merchants. If you have any questions about this policy, you can reach us at <a href="mailto:support@scurix.com">support@scurix.com</a>.</p>
+      </section>
+
+      <section id="s2">
+        <h2><span class="num">2</span> Information we collect</h2>
+        <p>We collect only the data necessary to provide the app's functionality. This includes:</p>
+
+        <p><strong>Merchant / store data (collected when you install the app):</strong></p>
+        <ul>
+          <li>Your Shopify store domain and store name</li>
+          <li>Your Shopify access token (scoped to the permissions required by the app)</li>
+          <li>Your name and email address as provided in your Shopify account</li>
+          <li>Your store's plan and currency (used to determine feature availability)</li>
+        </ul>
+
+        <p><strong>App configuration data (created by you within the app):</strong></p>
+        <ul>
+          <li>Video URLs you add (YouTube, Vimeo, TikTok links)</li>
+          <li>Optional video labels you create for your own reference</li>
+          <li>Video placement settings: type, CSS selector, target page, playback options</li>
+          <li>App-level settings such as enabled/disabled status</li>
+        </ul>
+
+        <p><strong>Usage data (collected automatically):</strong></p>
+        <ul>
+          <li>App events such as installs, uninstalls, plan changes, and errors</li>
+          <li>Aggregate usage metrics (e.g., number of active videos)</li>
+        </ul>
+
+        <p>We do <strong>not</strong> collect any personal data about your customers / end-shoppers beyond what is already available through standard Shopify storefront interactions.</p>
+      </section>
+
+      <section id="s3">
+        <h2><span class="num">3</span> How we use your information</h2>
+        <p>We use the collected information solely to:</p>
+        <ul>
+          <li>Provide, operate, and maintain the Scurix Video Background app</li>
+          <li>Authenticate your store and apply your plan entitlements</li>
+          <li>Store and serve your video configuration to your storefront</li>
+          <li>Respond to your support requests and troubleshoot issues</li>
+          <li>Send transactional notifications (e.g., billing events, important app updates) — no marketing email without your explicit consent</li>
+          <li>Improve the app and diagnose technical problems using aggregated, anonymised usage data</li>
+        </ul>
+        <p>We do <strong>not</strong> sell, rent, or share your personal data with third parties for marketing purposes.</p>
+      </section>
+
+      <section id="s4">
+        <h2><span class="num">4</span> Data storage &amp; security</h2>
+        <p>Your data is stored on secured servers. We implement industry-standard measures including:</p>
+        <ul>
+          <li>Encryption in transit (HTTPS/TLS) for all data transfers</li>
+          <li>Encryption at rest for stored credentials and sensitive fields</li>
+          <li>Access controls limiting data access to authorised personnel only</li>
+          <li>Regular security reviews of our infrastructure and dependencies</li>
+        </ul>
+        <p>No method of transmission or storage is 100% secure. If you become aware of a security concern, please contact us immediately at <a href="mailto:support@scurix.com">support@scurix.com</a>.</p>
+      </section>
+
+      <section id="s5">
+        <h2><span class="num">5</span> Third-party services</h2>
+        <p>The app embeds video content from third-party platforms. When a video is displayed on your storefront, your customers' browsers connect directly to those platforms. Each platform has its own privacy policy:</p>
+        <ul>
+          <li><strong>YouTube</strong> — operated by Google LLC. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy</a></li>
+          <li><strong>Vimeo</strong> — operated by Vimeo, Inc. See <a href="https://vimeo.com/privacy" target="_blank" rel="noopener">Vimeo Privacy Policy</a></li>
+          <li><strong>TikTok</strong> — operated by TikTok Ltd. See <a href="https://www.tiktok.com/legal/privacy-policy" target="_blank" rel="noopener">TikTok Privacy Policy</a></li>
+        </ul>
+        <p>We do not control how these platforms process data about viewers. You are responsible for disclosing the use of third-party video embeds to your customers in your own store's privacy policy.</p>
+        <p>We may also use infrastructure or monitoring services (e.g., hosting providers, error tracking) that process data on our behalf under appropriate data processing agreements.</p>
+      </section>
+
+      <section id="s6">
+        <h2><span class="num">6</span> Shopify platform</h2>
+        <p>Scurix Video Background is built on the Shopify platform. Your store data is subject to <a href="https://www.shopify.com/legal/privacy" target="_blank" rel="noopener">Shopify's Privacy Policy</a> in addition to this policy. We access your store data only through Shopify's official APIs and request only the minimum permission scopes required for the app to function.</p>
+      </section>
+
+      <section id="s7">
+        <h2><span class="num">7</span> Cookies</h2>
+        <p>The app admin interface (running inside the Shopify admin) uses session cookies required by Shopify for authentication. We do not place additional tracking cookies on your storefront or in your customers' browsers. Third-party video embeds may set their own cookies — refer to their respective privacy policies.</p>
+      </section>
+
+      <section id="s8">
+        <h2><span class="num">8</span> Data retention</h2>
+        <p>We retain your store data for as long as your store has the app installed. When you uninstall the app:</p>
+        <ul>
+          <li>Your video configurations and settings are deleted within <strong>30 days</strong></li>
+          <li>Your access token is immediately revoked and deleted</li>
+          <li>Anonymised, aggregated analytics data (not linked to your store) may be retained indefinitely for product improvement</li>
+        </ul>
+        <p>You may request earlier deletion of your data by contacting us at <a href="mailto:support@scurix.com">support@scurix.com</a>.</p>
+      </section>
+
+      <section id="s9">
+        <h2><span class="num">9</span> Your rights</h2>
+        <p>Depending on your jurisdiction, you may have the right to:</p>
+        <ul>
+          <li><strong>Access</strong> the personal data we hold about you</li>
+          <li><strong>Correct</strong> inaccurate personal data</li>
+          <li><strong>Delete</strong> your personal data ("right to be forgotten")</li>
+          <li><strong>Restrict or object</strong> to certain processing of your data</li>
+          <li><strong>Data portability</strong> — receive your data in a machine-readable format</li>
+        </ul>
+        <p>To exercise any of these rights, please contact us at <a href="mailto:support@scurix.com">support@scurix.com</a>. We will respond within 30 days.</p>
+      </section>
+
+      <section id="s10">
+        <h2><span class="num">10</span> Changes to this policy</h2>
+        <p>We may update this Privacy Policy from time to time. When we do, we will revise the "Last updated" date at the top of this page. For material changes we will notify you via email or a notice within the app. Continued use of the app after changes are posted constitutes acceptance of the revised policy.</p>
+      </section>
+
+      <section id="s11">
+        <h2><span class="num">11</span> Contact us</h2>
+        <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our data practices, please contact us:</p>
+        <ul>
+          <li><strong>Email:</strong> <a href="mailto:support@scurix.com">support@scurix.com</a></li>
+        </ul>
+        <p>We typically respond within a few business hours.</p>
+      </section>
+
+    </div>
+  </div>
+
+  <footer>
+    <p>
+      <a href="index.html">← Back to Scurix Video Background</a>
+      &nbsp;·&nbsp;
+      <a href="mailto:support@scurix.com">support@scurix.com</a>
+    </p>
+    <p style="margin-top:0.5rem;">&copy; 2025 Scurix. All rights reserved.</p>
+  </footer>
+
+</body>
+</html>
